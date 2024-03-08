@@ -1,0 +1,48 @@
+﻿ <!-- Train Schrdule Master Add Start -->
+
+ @model CancellationFees
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <h5 class="mb-0">Edit Fare Rule Master</h5>
+                </div>
+
+                <form action="" method="post">
+                    <div class="bg-light rounded d-block ms-auto me-auto h-100 p-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="hidden" name="CancellationFees_Id" value="@Model.CancellationFees_Id" />
+                            <input type="text" disabled class="form-control w-50" value="@Model.CancellationFees_Id" name="CancellationFees_Id" placeholder="CancellationFees Id:">
+                            <label>CancellationFees Id :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control w-50" value="@Model.Cancellation_24Hours" name="Cancellation_24Hours" placeholder="Before 24 Hours (Rs) :">
+                            <label>Before 24 Hours (Rs) :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control w-50" value="@Model.Cancellation_12Hours" name="Cancellation_12Hours" placeholder="Before 12 Hours (Rs) :">
+                            <label>Before 12 Hours (Rs) :</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control w-50" value="@Model.Cancellation_1Hours" name="Cancellation_1Hours" placeholder="Before 1 Hours (Rs) :">
+                            <label>Before 1 Hours (Rs) :</label>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-start">
+                                <button class="btn btn-primary" type="submit">
+                                    Submit
+                                </button>
+                                <button class="ms-2 btn btn-primary">
+                                    Back
+                                </button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Train Schrdule Master Add End -->

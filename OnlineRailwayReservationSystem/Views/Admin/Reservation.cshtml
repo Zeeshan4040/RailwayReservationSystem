@@ -1,0 +1,97 @@
+﻿ <!-- Reservation Master Start -->
+ @model TrainMaster
+
+@{
+    var stationMaster = ViewData["StationMaster"] as List<StationMaster>;
+    var TrainMaster = ViewData["TrainMaster"] as List<TrainMaster>;
+    var TrainScheduleMaster = ViewData["TrainScheduleMaster"] as List<TrainScheduleMaster>;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <h5 class="mb-0">Reservation </h5>
+                </div>
+                <form method="get" class="d-flex justify-content-around">
+                    <div>
+                        <label for="">From:</label>
+                        <select name="Start_StationCode" class="border-2 rounded-2 text-uppercase" id="">
+                            <option>--SELECT--</option>
+                            @foreach (var data in stationMaster)
+                            {
+                                <option class="text-uppercase" value="@data.Station_Code">@data.Station_Code</option>
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">To:</label>
+                        <select name="End_StationCode" class="border-2 text-uppercase rounded-2" id="">
+                            <option>--SELECT--</option>
+                            @foreach (var data in stationMaster)
+                            {
+                                <option class="text-uppercase" value="@data.Station_Code">@data.Station_Code</option>
+                            }
+         
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Date:</label>
+                        <input type="date" class="border-2 rounded-2" name="SearchDate" id="">
+                    </div>
+
+                    <input type="submit" class="btn btn-primary btn-sm" value="Find Train">
+                </form>
+                <br>
+
+                
+
+                <table class="table table-striped table-bordered table-info table-hover">
+                    <thead>
+                        <tr>
+                            <th>Train No.</th>
+                            <th>Train Name</th>
+                            <th>Train Type</th>
+                            <th>Mon To Sun</th>
+                            <th>A1</th>
+                            <th>A2</th>
+                            <th>A3</th>
+                            <th>Sleeper</th>
+                            <th>General</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var date in TrainScheduleMaster)
+                        {
+                            var searchDate = ViewData["searchDate"];
+                            <!-- Compare the dates if needed -->
+                            @if (date.Schedule_Date == searchDate)
+                            {
+                                @foreach (var data in TrainMaster)
+                                {
+                                    <tr>
+                                        <td>@data.Train_No</td>
+                                        <td>@data.Train_Name</td>
+                                        <td>@data.Train_Type</td>
+                                        <td>@data.Schedule_Mon | @data.Schedule_Tue | @data.Schedule_Wed | @data.Schedule_Thu | @data.Schedule_Fri | @data.Schedule_Sat | @data.Schedule_Sun</td>
+                                        <td>@data.Coach_A1</td>
+                                        <td>@data.Coach_A2</td>
+                                        <td>@data.Coach_A3</td>
+                                        <td>@data.Coach_SL</td>
+                                        <td>@data.Coach_GN</td>
+                                        <td>
+                                            <a href="@Url.Action("ReservationBooking", "Admin", new{id=@data.Train_Id})" class="btn btn-primary btn-sm">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Reservation Master End -->

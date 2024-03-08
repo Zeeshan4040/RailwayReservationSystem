@@ -1,0 +1,61 @@
+﻿            <!-- Train Master Start -->
+@model List<TrainMaster>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <h5 class="mb-0">Train Master</h5>
+                </div>
+                <table class="table table-bordered border-dark table-striped table-info">
+                    <thead>
+                        <tr>
+                            <th>Train No.</th>
+                            <th>Train Name</th>
+                            <th>Train Type</th>
+                            <th>Mon | Tue | Wed | Thu | Fri | Sat | Sun</th>
+                            <th>A1</th>
+                            <th>A2</th>
+                            <th>A3</th>
+                            <th>Sleeper</th>
+                            <th>General</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                @* <td>@data.Train_Id</td> *@
+                                <td>@data.Train_No</td>
+                                <td class="text-uppercase">@data.Train_Name</td>
+                                <td class="text-uppercase">@data.Train_Type</td>
+                                <td class="text-uppercase">@data.Schedule_Mon | @data.Schedule_Tue | @data.Schedule_Wed | @data.Schedule_Thu | @data.Schedule_Fri | @data.Schedule_Sat | @data.Schedule_Sun</td>
+                                <td class="text-uppercase">@data.Coach_A1</td>
+                                <td class="text-uppercase">@data.Coach_A2</td>
+                                <td class="text-uppercase">@data.Coach_A3</td>
+                                <td class="text-uppercase">@data.Coach_SL</td>
+                                <td class="text-uppercase">@data.Coach_GN</td>
+                                <td>
+                                    <a href="@Url.Action("TrainMasterEdit", "Admin", new{id=data.Train_Id})" class="btn btn-primary btn-sm">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="d-flex align-items-start">
+                    <a href="@Url.Action("TrainMasterAdd", "Admin")">
+                        <button class="btn btn-primary">
+                            Add New
+                        </button>
+                    </a>
+                    <button class="ms-2 btn btn-primary">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Train Master End -->

@@ -1,0 +1,136 @@
+﻿<!-- Reservation Booking Master Start -->
+@model TrainMaster
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <h5 class="mb-0">Ticket - Reservation </h5>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h6>Journey Date : 20 Feb 2024</h6>
+                    <h6>Train No. : @Model.Train_No</h6>
+                    <h6>Train Name : @Model.Train_Name</h6>
+                </div>
+                <div class="mt-2 d-flex justify-content-between">
+
+                    <div class="d-flex">
+                        <h6 class="mb-0 d-flex align-items-center me-2">Station From :</h6>
+                        <select class="form-select w-auto">
+                            <option selected>-- Select --</option>
+                            <h6>Train Name : @Model.</h6>
+
+                            <option value="1">CST</option>
+                            <option value="2">GOA</option>
+                            <option value="3">DUR</option>
+                        </select>
+                    </div>
+                    <div class="d-flex">
+                        <h6 class="mb-0 d-flex align-items-center me-2">Station To :</h6>
+                        <select class="form-select w-auto">
+                            <option selected>-- Select --</option>
+                            <option value="1">CST</option>
+                            <option value="2">GOA</option>
+                            <option value="3">DUR</option>
+                        </select>
+                    </div>
+                    <div class="d-flex">
+                        <h6 class="mb-0 d-flex align-items-center me-2">Coach Type :</h6>
+                        <select name="" class="form-select w-auto">
+                            <option selected>-- Select --</option>
+                            <option value="">A1</option>
+                            <option value="">A2</option>
+                            <option value="">A3</option>
+                            <option value="">GN</option>
+                            <option value="">SL</option>
+                        </select>
+                        <input type="button" class="btn btn-primary me-2 ms-2" value="Check">
+                    </div>
+                </div>
+
+                <hr class="bg-dark">
+
+
+                <div class="d-flex">
+                    <div class="col-lg-8">
+                        <form action="" class="d-flex">
+                            <div class="col-lg-5">
+                                <h6 for="">Passenger Name :</h6>
+                                <input type="text" name="" placeholder="Passenger Name" id=""><br>
+                                <input type="text" name="" placeholder="Passenger Name" id=""><br>
+                                <input type="text" name="" placeholder="Passenger Name" id=""><br>
+                                <input type="text" name="" placeholder="Passenger Name" id=""><br>
+                                <input type="text" name="" placeholder="Passenger Name" id=""><br>
+                            </div>
+                            <div class="col-lg-5">
+                                <h6 for="">Age :</h6>
+                                <input type="text" name="" placeholder="Age" id=""><br>
+                                <input type="text" name="" placeholder="Age" id=""><br>
+                                <input type="text" name="" placeholder="Age" id=""><br>
+                                <input type="text" name="" placeholder="Age" id=""><br>
+                                <input type="text" name="" placeholder="Age" id=""><br>
+                            </div>
+                            <div class="col-lg-3">
+                                <h6 for="">Gender :</h6>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select><br>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select><br>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select><br>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select><br>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select><br>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6>Per Seat Fair</h6>
+                        <h6>0</h6>
+                        <h6>Reservation Fees</h6>
+                        <h6>0</h6>
+                        <h6>Special Fees</h6>
+                        <h6>0</h6>
+                    </div>
+                </div>
+
+                <hr class="bg-dark">
+
+
+
+                <div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <h6>Available : 5</h6>
+                            <h6 class="ms-5">Distance : 600</h6>
+                        </div>
+                        <div class="d-flex">
+                            <a href="@Url.Action("ReservationBookingConfirmation", "Admin")">
+                                <button class="btn btn-primary" type="submit">
+                                    Submit
+                                </button>
+                            </a>
+                            <button class="ms-2 btn btn-primary">
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reservation Booking Master End -->
